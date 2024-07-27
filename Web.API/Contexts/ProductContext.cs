@@ -11,6 +11,7 @@ namespace Web.API.Contexts
         }
 
         public DbSet<Product> Products { get; set; }
+        public DbSet<Users> Users { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

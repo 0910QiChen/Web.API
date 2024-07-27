@@ -24,6 +24,14 @@ namespace Web.API.Contexts
 
             products.ForEach(p => context.Products.Add(p));
             context.SaveChanges();
+
+            var users = new List<Users>
+            {
+                new Users { UserName = "Admin", UserPassword = "AdminPassword" },
+                new Users { UserName = "abc@gmail.com", UserPassword = "123456789" },
+            };
+            users.ForEach(u => context.Users.Add(u));
+            context.SaveChanges();
         }
     }
 }

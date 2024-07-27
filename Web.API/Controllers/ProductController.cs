@@ -18,9 +18,10 @@ namespace Web.API.Controllers
         {
         }
 
-        // GET: api/Product
+        // GET: api/products
         [HttpGet]
         [Route("")]
+        [Authorize(Roles = "Admin, User")]
         public IHttpActionResult GetProducts()
         {
             try
@@ -34,10 +35,11 @@ namespace Web.API.Controllers
             }
         }
 
-        // GET: api/Product/5
+        // GET: api/products/5
         [HttpGet]
         [Route("{id:int}")]
         [ResponseType(typeof(Product))]
+        [Authorize(Roles = "Admin, User")]
         public IHttpActionResult GetProduct(int id)
         {
             try
@@ -56,10 +58,11 @@ namespace Web.API.Controllers
             }
         }
 
-        // PUT: api/Product/5
+        // PUT: api/products/5
         [HttpPut]
         [Route("{id:int}")]
         [ResponseType(typeof(void))]
+        [Authorize(Roles = "Admin")]
         public IHttpActionResult PutProduct(int id, Product product)
         {
             if (!ModelState.IsValid)
@@ -98,10 +101,11 @@ namespace Web.API.Controllers
             }
         }
 
-        // POST: api/Product
+        // POST: api/products
         [HttpPost]
         [Route("")]
         [ResponseType(typeof(Product))]
+        [Authorize(Roles = "Admin")]
         public IHttpActionResult PostProduct(Product product)
         {
             if (!ModelState.IsValid)
@@ -123,10 +127,11 @@ namespace Web.API.Controllers
             }
         }
 
-        // DELETE: api/Product/5
+        // DELETE: api/products/5
         [HttpDelete]
         [Route("{id:int}")]
         [ResponseType(typeof(Product))]
+        [Authorize(Roles = "Admin")]
         public IHttpActionResult DeleteProduct(int id)
         {
             try
